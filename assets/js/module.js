@@ -51,7 +51,7 @@ export const getDate = function(dateUnix, timezone) {
  * @returns {string} Time string. formate: "HH:MM AM/PM"
 */
 export const getTime = function(timeUnix, timezone) {
-    const date = new Date((timeUnix, timezone) * 1000);
+    const date = new Date((timeUnix + timezone) * 1000);
     const hours = date.getUTCHours();
     const minutes = date.getUTCMinutes();
     const period = hours >= 12 ? "PM" : "AM";
@@ -66,7 +66,7 @@ export const getTime = function(timeUnix, timezone) {
  * @returns {string} Time string. formate: "HH AM/PM"
 */
 export const getHours = function(timeUnix, timezone) {
-    const date = new Date((timeUnix, timezone) * 1000);
+    const date = new Date((timeUnix + timezone) * 1000);
     const hours = date.getUTCHours();
     // const minutes = date.getUTCMinutes();
     const period = hours >= 12 ? "PM" : "AM";
